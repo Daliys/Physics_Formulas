@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+/*
         but1 = findViewById(R.id.button1);
         but2 = findViewById(R.id.button2);
         but3 = findViewById(R.id.button3);
@@ -40,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         GenereteExample();
-
+*/
     }
-
+/*
     public void But(View v){
         GenereteExample();
     }
@@ -124,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
-    }
+    }*/
 
 }
 

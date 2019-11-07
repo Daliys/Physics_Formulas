@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Physics Formulas</string>
+    <string name="CustView1_exampleString">Physics Formulas</string>
+    <string name="MyView_exampleDimension">Tekst</string>
 </resources>

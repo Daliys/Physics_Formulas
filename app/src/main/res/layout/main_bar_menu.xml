@@ -1,22 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView2"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="0.9"
+        android:background="#8F81E7"
+        android:orientation="horizontal">
 
-        app:srcCompat="?attr/colorError" />
+        <Button
+            android:id="@+id/button"
 
-    <ImageView
-        android:id="@+id/imageView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:background="@android:color/holo_green_dark"
+            android:text="..." />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:text="Segun la mujer "
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight=".1"
+        android:layout_weight="0.1">
 
-        app:srcCompat="?attr/colorPrimaryDark" />
+        <fragment
+            android:id="@+id/fragment"
+            android:name="com.example.physicsformulas.FragmentTask1Main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+            tools:layout="@layout/fragment_task1_main" />
+    </FrameLayout>
+
 </LinearLayout>

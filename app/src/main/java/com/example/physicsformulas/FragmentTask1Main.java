@@ -12,24 +12,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class BlankFragment extends Fragment {
+public class FragmentTask1Main extends Fragment {
 
     private BlankViewModel mViewModel;
 
-    public static BlankFragment newInstance() {
-        return new BlankFragment();
+    public static FragmentTask1Main newInstance() {
+        return new FragmentTask1Main();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fr1_fragment, container, false);
+        return inflater.inflate(R.layout.fragment_task1_main, container, false);
+
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(BlankViewModel.class);
+
         // TODO: Use the ViewModel
     }
 

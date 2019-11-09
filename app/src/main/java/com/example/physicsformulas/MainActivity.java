@@ -19,11 +19,13 @@ public class MainActivity extends AppCompatActivity {
     TextView textViewExample, textViewAnswer;
     ImageView imageViewExample;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //TextView t = findViewById(R.id.textViewTaskPart1);
+       // t.setText("Tobi Pizda");
 
 /*
         but1 = findViewById(R.id.button1);

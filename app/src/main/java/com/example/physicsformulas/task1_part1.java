@@ -13,9 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
-
-public class task1_part2 extends Fragment {
+public class task1_part1 extends Fragment {
     private BlankViewModel mViewModel;
 
     public static FragmentTask1Main newInstance() {
@@ -25,7 +23,7 @@ public class task1_part2 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_task1_part2, container, false);
+        return inflater.inflate(R.layout.fragment_task1_part1, container, false);
 
     }
 

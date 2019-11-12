@@ -28,8 +28,8 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <fragment
-            android:id="@+id/fragment_container"
-            android:name="com.example.physicsformulas.task_part1"
+            android:id="@+id/fragment_containerMain"
+            android:name="com.example.physicsformulas.task1_part1"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"

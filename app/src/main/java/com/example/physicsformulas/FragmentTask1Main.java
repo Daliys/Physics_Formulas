@@ -1,6 +1,5 @@
 package com.example.physicsformulas;
 
-import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
 
@@ -14,12 +13,6 @@ import android.view.ViewGroup;
 
 public class FragmentTask1Main extends Fragment {
 
-    private BlankViewModel mViewModel;
-
-    public static FragmentTask1Main newInstance() {
-        return new FragmentTask1Main();
-    }
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -27,12 +20,5 @@ public class FragmentTask1Main extends Fragment {
 
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(BlankViewModel.class);
-
-        // TODO: Use the ViewModel
-    }
 
 }

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".task1_part1">
+    android:background="#00A088"
+    tools:context=".Task1Part1">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -12,52 +13,52 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textViewTaskPart1"
+            android:id="@+id/textView_question_part1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:text="Расскажи мне блять как сложно найти путь"
             android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/button2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/button_answer1_part1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/formula_1"
-            app:layout_constraintBottom_toTopOf="@+id/button3"
+            app:layout_constraintBottom_toTopOf="@id/button_answer2_part1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewTaskPart1" />
+            app:layout_constraintTop_toBottomOf="@+id/textView_question_part1" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/button_answer2_part1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/formula_3"
-            app:layout_constraintBottom_toTopOf="@+id/button4"
+            app:layout_constraintBottom_toTopOf="@id/button_answer3_part1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button2" />
+            app:layout_constraintTop_toBottomOf="@id/button_answer1_part1" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/button_answer3_part1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/formula_3"
-            app:layout_constraintBottom_toTopOf="@+id/button5"
+            app:layout_constraintBottom_toTopOf="@id/button_answer4_part1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button3" />
+            app:layout_constraintTop_toBottomOf="@id/button_answer2_part1" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/button_answer4_part1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/formula_3"
@@ -65,7 +66,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button4" />
+            app:layout_constraintTop_toBottomOf="@id/button_answer3_part1" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="409dp"
+            android:layout_height="5dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toTopOf="@id/button_answer1_part1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_question_part1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -13,16 +13,17 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonChangeFragment"
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:background="@android:color/holo_green_dark"
+            android:onClick="ButtonChangeFragmentListener"
             android:text="..." />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textViewTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

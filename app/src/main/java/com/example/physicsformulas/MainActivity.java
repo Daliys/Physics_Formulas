@@ -15,54 +15,40 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-   public List<Formula> formulas ;
-    Button but1, but2, but3, but4;
-    TextView textViewExample, textViewAnswer;
-    ImageView imageViewExample;
-
-
     Task1Part1 task1Part1;
     Task1Part2 task1Part2;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
+    public static FormulaLogic formulaLogic;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fragmentManager = getSupportFragmentManager();
-
-        task1Part2 = new Task1Part2();
         task1Part1 = new Task1Part1();
+        task1Part2 = new Task1Part2();
+        fragmentManager = getSupportFragmentManager();
+        formulaLogic = new FormulaLogic(this);
 
 
-        //TextView t = findViewById(R.id.textViewTaskPart1);
-       // t.setText("Tobi Pizda");
-
-/*
-        but1 = findViewById(R.id.button1);
-        but2 = findViewById(R.id.button2);
-        but3 = findViewById(R.id.button3);
-        but4 = findViewById(R.id.button4);
-        textViewExample = findViewById(R.id.textViewExample);
-        textViewAnswer = findViewById(R.id.textView3);
-        imageViewExample = findViewById(R.id.imageViewExample);
-
-        formulas = new ArrayList<>();
-        formulas.add(new Formula("Скорость", "1"));
-        formulas.add(new Formula("Ускорение", "2"));
-        formulas.add(new Formula("Тангенциальное ускорение", "3"));
-        formulas.add(new Formula("Нормальное ускорение", "4"));
-
-
-        GenereteExample();
-*/
     }
-    boolean isSwitch = false;
-    public void ButtonChangeFragmentListener(View view) {
 
+    public void SwitchFragment(int index){
         fragmentTransaction = fragmentManager.beginTransaction();
+
+        if (index == 1 ) fragmentTransaction.replace(R.id.fragment_containerMain, task1Part1);
+        else if (index == 2) fragmentTransaction.replace(R.id.fragment_containerMain, task1Part2);
+
+        fragmentTransaction.commit();
+    }
+
+    boolean isSwitch = true;
+    public void ButtonChangeFragmentListener(View view) {
+        formulaLogic.Start();
+
+       /* fragmentTransaction = fragmentManager.beginTransaction();
 
         if (isSwitch) {
             fragmentTransaction.replace(R.id.fragment_containerMain, task1Part1);
@@ -71,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         }
         isSwitch = !isSwitch;
         fragmentTransaction.commit();
+*/
     }
 
 /*
@@ -103,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
     Formula rightAnswer;
     Formula[] randFormula;
 
-    void GenereteExample(){
+    void GenerateExample(){
 
        randFormula = new Formula[formulas.size()];
        randFormula = formulas.toArray(randFormula);
@@ -160,13 +147,3 @@ public class MainActivity extends AppCompatActivity {
 }
 
 
-class Formula{
-    public String name;
-    public String id;
-
-    public Formula(String name, String id){
-        this.name = name;
-        this.id = id;
-    }
-
-}

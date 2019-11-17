@@ -25,7 +25,6 @@ public class FormulaLogic extends MainActivity{
 
     public void Start(){
         GenerateExample();
-
     }
 
     public FormulaLogic(MainActivity activity){
@@ -59,9 +58,9 @@ public class FormulaLogic extends MainActivity{
         rightAnswerFormula = questionFormulas.get(random.nextInt(questionFormulas.size()));
 
         if (random.nextBoolean()) {
-            view.SwitchFragment(1);
+            view.SwitchFragment(11);
         } else {
-            view.SwitchFragment(2);
+            view.SwitchFragment(12);
         }
 
     }

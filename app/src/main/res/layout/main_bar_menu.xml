@@ -17,19 +17,65 @@
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="4"
+            android:layout_weight="0.25"
             android:background="@android:color/holo_green_dark"
             android:onClick="ButtonChangeFragmentListener"
             android:text="..." />
 
-        <TextView
-            android:id="@+id/textViewTitle"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_weight="1"
-            android:text="Segun la mujer "
-            android:textSize="24sp" />
+            android:layout_height="match_parent"
+            android:layout_weight="0.2">
+
+            <TextView
+                android:id="@+id/textViewRightAnswers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageViewRight"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageViewRight"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@android:drawable/ic_input_add" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2">
+
+            <TextView
+                android:id="@+id/textViewWrongAnswers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="0"
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageViewWrong"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageViewWrong"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@android:drawable/ic_delete" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </LinearLayout>
 
     <FrameLayout
@@ -38,12 +84,13 @@
         android:layout_weight="0.1">
 
         <fragment
-            android:id="@+id/fragment"
-            android:name="com.example.physicsformulas.FragmentTask1Main"
+            android:id="@+id/fragment_containerMain"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.1"
-            tools:layout="@layout/fragment_task1_main" />
+            android:name="com.example.physicsformulas.Task1Part1"
+            tools:layout="@layout/fragment_task1_part1" />
+
     </FrameLayout>
 
 </LinearLayout>

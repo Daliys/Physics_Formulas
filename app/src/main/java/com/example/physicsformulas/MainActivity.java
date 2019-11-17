@@ -15,47 +15,66 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    Task1Part1 task1Part1;
-    Task1Part2 task1Part2;
+   //public Task1Part1 task1Part1;
+   // public  Task1Part2 task1Part2;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     public static FormulaLogic formulaLogic;
 
+    public static String PACKAGE_NAME;
+    public static boolean isInitialize = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        PACKAGE_NAME = getPackageName();
 
-        task1Part1 = new Task1Part1();
-        task1Part2 = new Task1Part2();
+        //task1Part1 = new Task1Part1();
+        //task1Part2 = new Task1Part2();
         fragmentManager = getSupportFragmentManager();
         formulaLogic = new FormulaLogic(this);
+        isInitialize = true;
 
+        SwitchFragment(1);
 
     }
 
     public void SwitchFragment(int index){
         fragmentTransaction = fragmentManager.beginTransaction();
 
-        if (index == 1 ) fragmentTransaction.replace(R.id.fragment_containerMain, task1Part1);
-        else if (index == 2) fragmentTransaction.replace(R.id.fragment_containerMain, task1Part2);
+        if (index == 1 ) {
+            fragmentTransaction.replace(R.id.fragment_containerMain, new Task1Part1());
+            //fragmentTransaction.remove(fragmentManager.findFragmentById(R.id.fragment_containerMain));
+           // fragmentTransaction.add(R.id.fragment_containerMain,task1Part1);
+
+        }
+        else if (index == 2) {
+            fragmentTransaction.replace(R.id.fragment_containerMain, new Task1Part2());
+            //fragmentTransaction.remove(fragmentManager.findFragmentById(R.id.fragment_containerMain));
+            //fragmentTransaction.add(R.id.fragment_containerMain,task1Part2);
+
+        }
+
+
 
         fragmentTransaction.commit();
     }
 
+
+
     boolean isSwitch = true;
     public void ButtonChangeFragmentListener(View view) {
         formulaLogic.Start();
+/*
+        fragmentTransaction = fragmentManager.beginTransaction();
 
-       /* fragmentTransaction = fragmentManager.beginTransaction();
-
-        if (isSwitch) {
-            fragmentTransaction.replace(R.id.fragment_containerMain, task1Part1);
-        } else {
+       // if (isSwitch) {
+        //    fragmentTransaction.replace(R.id.fragment_containerMain, task1Part1);
+      //  } else {
             fragmentTransaction.replace(R.id.fragment_containerMain,  task1Part2);
-        }
-        isSwitch = !isSwitch;
+     //   }
+      //  isSwitch = !isSwitch;
         fragmentTransaction.commit();
 */
     }
@@ -68,26 +87,26 @@ public class MainActivity extends AppCompatActivity {
     public void ButAnswer(View v){
         switch (v.getId()) {
             case R.id.button1:
-                if (randFormula[0].equals(rightAnswer)) textViewAnswer.setText("Right");
+                if (randFormula[0].equals(rightAnswerFormula)) textViewAnswer.setText("Right");
                 else textViewAnswer.setText("Wrong");
                 break;
             case R.id.button2:
-                if (randFormula[1].equals(rightAnswer)) textViewAnswer.setText("Right");
+                if (randFormula[1].equals(rightAnswerFormula)) textViewAnswer.setText("Right");
                 else textViewAnswer.setText("Wrong");
                 break;
             case R.id.button3:
-                if (randFormula[2].equals(rightAnswer)) textViewAnswer.setText("Right");
+                if (randFormula[2].equals(rightAnswerFormula)) textViewAnswer.setText("Right");
                 else textViewAnswer.setText("Wrong");
                 break;
             case R.id.button4:
-                if (randFormula[3].equals(rightAnswer)) textViewAnswer.setText("Right");
+                if (randFormula[3].equals(rightAnswerFormula)) textViewAnswer.setText("Right");
                 else textViewAnswer.setText("Wrong");
                 break;
 
         }
     }
 
-    Formula rightAnswer;
+    Formula rightAnswerFormula;
     Formula[] randFormula;
 
     void GenerateExample(){
@@ -107,11 +126,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        rightAnswer = randFormula[random.nextInt(4)];
+        rightAnswerFormula = randFormula[random.nextInt(4)];
 
         if(random.nextBoolean()){
             textViewExample.setVisibility(View.INVISIBLE);
-            imageViewExample.setImageResource(getResources().getIdentifier("formula_"+ rightAnswer.id,"drawable", getPackageName()));
+            imageViewExample.setImageResource(getResources().getIdentifier("formula_"+ rightAnswerFormula.id,"drawable", getPackageName()));
             imageViewExample.setVisibility(View.VISIBLE);
 
             but1.setBackgroundResource(R.color.colorButton);
@@ -127,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
         }else{
             textViewExample.setVisibility(View.VISIBLE);
-            textViewExample.setText(rightAnswer.name);
+            textViewExample.setText(rightAnswerFormula.name);
             imageViewExample.setVisibility(View.INVISIBLE);
 
             but1.setText("");

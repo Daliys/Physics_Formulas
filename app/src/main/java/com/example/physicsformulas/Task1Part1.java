@@ -1,16 +1,11 @@
 package com.example.physicsformulas;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
 
-import android.os.Debug;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +18,7 @@ public class Task1Part1 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_task1_part1,null);
+        View v = inflater.inflate(R.layout.fragment_task1_part1, null);
         Button button1 = (Button) v.findViewById(R.id.button_answer1_part1);
         Button button2 = (Button) v.findViewById(R.id.button_answer2_part1);
         Button button3 = (Button) v.findViewById(R.id.button_answer3_part1);
@@ -33,38 +28,48 @@ public class Task1Part1 extends Fragment {
         button3.setOnClickListener(btnClick);
         button4.setOnClickListener(btnClick);
 
+        if (MainActivity.isInitialize)
+            SetContent(v);
+
         return v;
 
     }
 
     @Override
-    public void onStart(){
+    public void onStart() {
         super.onStart();
     }
 
-
+    public void SetContent(View view) {
+        TextView textView = view.findViewById(R.id.textView_question_part1);
+        textView.setText(MainActivity.formulaLogic.rightAnswerFormula.name);
+        Button button1 = view.findViewById(R.id.button_answer1_part1);
+        button1.setBackgroundResource(getResources().getIdentifier("formula_" + MainActivity.formulaLogic.questionFormulas.get(0).id, "drawable", MainActivity.PACKAGE_NAME));
+        Button button2 = view.findViewById(R.id.button_answer2_part1);
+        button2.setBackgroundResource(getResources().getIdentifier("formula_" + MainActivity.formulaLogic.questionFormulas.get(1).id, "drawable", MainActivity.PACKAGE_NAME));
+        Button button3 = view.findViewById(R.id.button_answer3_part1);
+        button3.setBackgroundResource(getResources().getIdentifier("formula_" + MainActivity.formulaLogic.questionFormulas.get(2).id, "drawable", MainActivity.PACKAGE_NAME));
+        Button button4 = view.findViewById(R.id.button_answer4_part1);
+        button4.setBackgroundResource(getResources().getIdentifier("formula_" + MainActivity.formulaLogic.questionFormulas.get(3).id, "drawable", MainActivity.PACKAGE_NAME));
+    }
 
     private View.OnClickListener btnClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            String str = "TEXT + ";
             switch (view.getId()) {
                 case R.id.button_answer1_part1:
-                 MainActivity.formulaLogic.SendAnswerButton(1);
+                    MainActivity.formulaLogic.SendAnswerButton(0);
                     break;
                 case R.id.button_answer2_part1:
-                    MainActivity.formulaLogic.SendAnswerButton(2);
+                    MainActivity.formulaLogic.SendAnswerButton(1);
                     break;
                 case R.id.button_answer3_part1:
-                    MainActivity.formulaLogic.SendAnswerButton(3);
+                    MainActivity.formulaLogic.SendAnswerButton(2);
                     break;
                 case R.id.button_answer4_part1:
-                    MainActivity.formulaLogic.SendAnswerButton(4);
+                    MainActivity.formulaLogic.SendAnswerButton(3);
                     break;
             }
-            TextView textView = getActivity().findViewById(R.id.textViewTitle);
-               textView.setText(str);
-
         }
 
     };

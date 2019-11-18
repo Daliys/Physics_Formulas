@@ -2,6 +2,8 @@ package com.example.physicsformulas;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -27,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
     public static String PACKAGE_NAME;
     public static boolean isInitialize = false;
     NavigationView navigationView;
-
+    public static boolean closeThread = false;
+    DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         isInitialize = true;
         formulaLogic.logicTask1.Start();
 
+        drawerLayout = findViewById(R.id.DrawelLayout);
         NavigationItemListener();
 
     }
@@ -52,15 +56,24 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.menu_task1:
+                        formulaLogic.logicTask1.ResetCounters();
                         formulaLogic.logicTask1.Start();
+                        SetVisibleMenuLayouts(true);
                         break;
                     case R.id.menu_task2:
                         SwitchFragment(20);
                         formulaLogic.logicTask2.Start();
+                        SetVisibleMenuLayouts(false);
+                        formulaLogic.logicTask1.ResetCounters();
                         break;
                     case R.id.menu_wiki:
+                        formulaLogic.numCreatedWikiFormulas = 0;
+                        SwitchFragment(30);
+                        SetVisibleMenuLayouts(false);
+                        formulaLogic.logicTask1.ResetCounters();
                         break;
                 }
+                drawerLayout.closeDrawer(navigationView);
 
                 return false;
             }
@@ -69,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void SwitchFragment(int index) {
+        closeThread = true;
         fragmentTransaction = fragmentManager.beginTransaction();
 Log.e("Daliys", ""+fragmentManager.getFragments().size());
 
@@ -76,34 +90,45 @@ Log.e("Daliys", ""+fragmentManager.getFragments().size());
 
             case 11:
                 fragmentTransaction.replace(R.id.frame_containerMain, new Task1Part1() );
+
                 break;
             case 12:
                 fragmentTransaction.replace(R.id.frame_containerMain, new Task1Part2());
+
                 break;
             case 20:
                 fragmentTransaction.replace(R.id.frame_containerMain, new Task2());
+
+                break;
+                case 21:
+                fragmentTransaction.replace(R.id.frame_containerMain, new Task2Answers());
+
+                break;
+            case 30:
+                fragmentTransaction.replace(R.id.frame_containerMain, new Wiki());
+
                 break;
         }
 
         fragmentTransaction.commit();
     }
 
+    public void SetVisibleMenuLayouts(boolean isVisible){
+        ConstraintLayout menu1 = findViewById(R.id.menuLayout1);
+        ConstraintLayout menu2 = findViewById(R.id.menuLayout2);
+        if(isVisible){
+            menu1.setVisibility(View.VISIBLE);
+            menu2.setVisibility(View.VISIBLE);
+        }else {
+            menu1.setVisibility(View.INVISIBLE);
+            menu2.setVisibility(View.INVISIBLE);
+        }
+    }
 
 
     boolean isSwitch = true;
     public void ButtonChangeFragmentListener(View view) {
-        formulaLogic.logicTask1.Start();
-/*
-        fragmentTransaction = fragmentManager.beginTransaction();
-
-       // if (isSwitch) {
-        //    fragmentTransaction.replace(R.id.fragment_containerMain, task1Part1);
-      //  } else {
-            fragmentTransaction.replace(R.id.fragment_containerMain,  task1Part2);
-     //   }
-      //  isSwitch = !isSwitch;
-        fragmentTransaction.commit();
-*/
+        drawerLayout.openDrawer(navigationView);
     }
 
 }

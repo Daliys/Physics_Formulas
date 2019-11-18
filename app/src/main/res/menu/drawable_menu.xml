@@ -4,12 +4,11 @@
 
     <item
         android:id="@+id/menu_task1"
-        android:title="Тесты" />
+        android:title="Тесты" ></item>
     <item
         android:id="@+id/menu_task2"
-        android:title="Тесты Время" />
+        android:title="На время" />
     <item
         android:id="@+id/menu_wiki"
-        android:title="АндрианаПедия" />
-    <item android:title="Yo habla espanol" />
+        android:title="АндрианаПедия" ></item>
 </menu>

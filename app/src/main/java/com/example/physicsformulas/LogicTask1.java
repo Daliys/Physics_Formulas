@@ -20,6 +20,15 @@ public class LogicTask1  {
         this.formulaLogic = formulaLogic;
     }
 
+    public void ResetCounters(){
+        rightAnswer = 0;
+        wrongAnswer = 0;
+        TextView textViewWrongAnswer = formulaLogic.view.findViewById(R.id.textViewWrongAnswers);
+        TextView textViewRightAnswer = formulaLogic.view.findViewById(R.id.textViewRightAnswers);
+        textViewRightAnswer.setText(Integer.toString(rightAnswer));
+        textViewWrongAnswer.setText(Integer.toString(wrongAnswer));
+    }
+
     public void Start(){
         GenerateExample();
         rightAnswerFormula = questionFormulas.get(0);

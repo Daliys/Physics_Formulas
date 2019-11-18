@@ -1,9 +1,7 @@
 package com.example.physicsformulas;
-import android.util.Log;
-import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+
 //here was extend MainActivity
 public class FormulaLogic {
 
@@ -12,11 +10,14 @@ public class FormulaLogic {
     public LogicTask1 logicTask1;
     public LogicTask2 logicTask2;
 
+    public int numCreatedWikiFormulas;
+
     public FormulaLogic(MainActivity activity){
         this.view = activity;
         InitializeFormulas();
         logicTask1 = new LogicTask1(this);
         logicTask2 = new LogicTask2(this);
+        numCreatedWikiFormulas =0;
     }
 
 

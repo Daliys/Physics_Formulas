@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
         formulaLogic = new FormulaLogic(this);
         isInitialize = true;
-        formulaLogic.Start();
+        formulaLogic.logicTask1.Start();
 
         NavigationItemListener();
 
@@ -52,10 +52,11 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.menu_task1:
-                        formulaLogic.Start();
+                        formulaLogic.logicTask1.Start();
                         break;
                     case R.id.menu_task2:
                         SwitchFragment(20);
+                        formulaLogic.logicTask2.Start();
                         break;
                     case R.id.menu_wiki:
                         break;
@@ -91,7 +92,7 @@ Log.e("Daliys", ""+fragmentManager.getFragments().size());
 
     boolean isSwitch = true;
     public void ButtonChangeFragmentListener(View view) {
-        formulaLogic.Start();
+        formulaLogic.logicTask1.Start();
 /*
         fragmentTransaction = fragmentManager.beginTransaction();
 

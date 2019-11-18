@@ -42,15 +42,15 @@ public class Task1Part1 extends Fragment {
 
     public void SetContent(View view) {
         TextView textView = view.findViewById(R.id.textView_question_part1);
-        textView.setText(MainActivity.formulaLogic.rightAnswerFormula.name);
+        textView.setText(MainActivity.formulaLogic.logicTask1.rightAnswerFormula.name);
         Button button1 = view.findViewById(R.id.button_answer1_part1);
-        button1.setBackgroundResource(getResources().getIdentifier("formula_" + MainActivity.formulaLogic.questionFormulas.get(0).id, "drawable", MainActivity.PACKAGE_NAME));
+        button1.setBackgroundResource(getResources().getIdentifier("formula_" + MainActivity.formulaLogic.logicTask1.questionFormulas.get(0).id, "drawable", MainActivity.PACKAGE_NAME));
         Button button2 = view.findViewById(R.id.button_answer2_part1);
-        button2.setBackgroundResource(getResources().getIdentifier("formula_" + MainActivity.formulaLogic.questionFormulas.get(1).id, "drawable", MainActivity.PACKAGE_NAME));
+        button2.setBackgroundResource(getResources().getIdentifier("formula_" + MainActivity.formulaLogic.logicTask1.questionFormulas.get(1).id, "drawable", MainActivity.PACKAGE_NAME));
         Button button3 = view.findViewById(R.id.button_answer3_part1);
-        button3.setBackgroundResource(getResources().getIdentifier("formula_" + MainActivity.formulaLogic.questionFormulas.get(2).id, "drawable", MainActivity.PACKAGE_NAME));
+        button3.setBackgroundResource(getResources().getIdentifier("formula_" + MainActivity.formulaLogic.logicTask1.questionFormulas.get(2).id, "drawable", MainActivity.PACKAGE_NAME));
         Button button4 = view.findViewById(R.id.button_answer4_part1);
-        button4.setBackgroundResource(getResources().getIdentifier("formula_" + MainActivity.formulaLogic.questionFormulas.get(3).id, "drawable", MainActivity.PACKAGE_NAME));
+        button4.setBackgroundResource(getResources().getIdentifier("formula_" + MainActivity.formulaLogic.logicTask1.questionFormulas.get(3).id, "drawable", MainActivity.PACKAGE_NAME));
     }
 
     private View.OnClickListener btnClick = new View.OnClickListener() {
@@ -58,16 +58,17 @@ public class Task1Part1 extends Fragment {
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.button_answer1_part1:
-                    MainActivity.formulaLogic.SendAnswerButton(0);
+
+                    MainActivity.formulaLogic.logicTask1.SendAnswerButton(0);
                     break;
                 case R.id.button_answer2_part1:
-                    MainActivity.formulaLogic.SendAnswerButton(1);
+                    MainActivity.formulaLogic.logicTask1.SendAnswerButton(1);
                     break;
                 case R.id.button_answer3_part1:
-                    MainActivity.formulaLogic.SendAnswerButton(2);
+                    MainActivity.formulaLogic.logicTask1.SendAnswerButton(2);
                     break;
                 case R.id.button_answer4_part1:
-                    MainActivity.formulaLogic.SendAnswerButton(3);
+                    MainActivity.formulaLogic.logicTask1.SendAnswerButton(3);
                     break;
             }
         }

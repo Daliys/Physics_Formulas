@@ -87,6 +87,10 @@ public class Task2 extends Fragment {
                                         textViewTimer.setText(Integer.toString(intText));
                                     }
                                 });
+                                try {
+                                    thread.sleep(15);
+                                } catch (Exception e) {
+                                }
                             }
                             MainActivity.formulaLogic.logicTask2.numCurrentFormula++;
                         }

@@ -38,7 +38,8 @@
         android:src="@drawable/formula_1"
         app:layout_constraintBottom_toBottomOf="@+id/imageView_fragment_wiki_backgroung"
         app:layout_constraintEnd_toEndOf="@+id/imageView_fragment_wiki_backgroung"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/formula_5" />
 
     <TextView
         android:id="@+id/textView_fragment_wiki_formula"

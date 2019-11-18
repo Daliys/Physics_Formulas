@@ -28,6 +28,13 @@ public class FormulaLogic {
         formulasList.add(new Formula("Ускорение", "2"));
         formulasList.add(new Formula("Тангенциальное ускорение", "3"));
         formulasList.add(new Formula("Нормальное ускорение", "4"));
+        formulasList.add(new Formula("Количество движения", "5"));
+        formulasList.add(new Formula("Закон изменения кол-ва движения", "6"));
+        formulasList.add(new Formula("Мера воздействия", "7"));
+        formulasList.add(new Formula("Уравнение динамики", "8"));
+        formulasList.add(new Formula("Энергия движения", "9"));
+        formulasList.add(new Formula("Механическая работа", "10"));
+
 
     }
 }
